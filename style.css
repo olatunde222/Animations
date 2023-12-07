@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300&family=Major+Mono+Display&display=swap");
+
+:root {
+  --earth-image: url("https://codetheworld.io/wp-content/uploads/2023/12/earth.jpg");
+  --earth-tilt: rotate(23.26deg);
+  --earth-day: 23.9;
+  --earth-color: #b3caff;
+  --mars-image: url("https://codetheworld.io/wp-content/uploads/2023/12/mars.jpg");
+  --mars-tilt: rotate(25.2deg);
+  --mars-day: 24.6;
+  --mars-color: #c07158;
+  --jupiter-image: url("https://codetheworld.io/wp-content/uploads/2023/12/jupiter.jpg");
+  --jupiter-tilt: rotate(3.2deg);
+  --jupiter-day: 9.9;
+  --jupiter-color: #c9b5a4;
+}
+
+@keyframes planetRotate {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+body {
+  height: 80vh;
+  background: #000000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6.25rem;
+  margin-top: 5rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: capitalize;
+
+  --image: var(--earth-image);
+  --color: var(--earth-color);
+  --tilt: var(--earth-tilt);
+  --day: var(--earth-day);
+}
+
+.atmosphere {
+  height: 11.875rem;
+  width: 11.875rem;
+  position: relative;
+  background: radial-gradient(circle at 30% 50% #ffffff4d 0% #ffffff00 65%);
+  border-radius: 6.25rem;
+  overflow: hidden;
+  box-shadow: inset 10px 0px 12px -2px #ffffff33, inset -70px 0px 50px 0px black,
+    -5px 0px 10px -4px var(--color);
+}
+
+.surface {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  background-image: var(--image);
+  background-size: cover;
+  transform: var(--tilt) scale(1.2);
+  animation: planetRotate calc(var(--day) * 1s) linear infinite;
+}
+
+.planet::before {
+  content: "";
+  position: absolute;
+  height: 190px;
+  z-index: -2;
+  left: 50%;
+  top: 0;
+  border-left: 1px dashed var(--color);
+  transform: var(--tilt) scale(1.2);
+}
+
+.icon {
+  transform: var(--tilt);
+  color: var(--color);
+  margin: 10px;
+}
+
+.mars {
+  --image: var(--mars-image);
+  --color: var(--mars-color);
+  --tilt: var(--mars-tilt);
+  --day: var(--mars-day);
+}
+
+.jupiter {
+  --image: var(--jupiter-image);
+  --color: var(--jupiter-color);
+  --tilt: var(--jupiter-tilt);
+  --day: var(--jupiter-day);
+}
+
+.info {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.75rem;
+}
+.details {
+  font-size: 0.7rem;
+}
+
+.label {
+  font-size: 0.688rem;
+}
+
+.line {
+  flex: 1;
+  margin: 0 5px;
+  border-bottom: 1px dashed #ffffff4d;
+}
+
+.git {
+  display: flex;
+  position: absolute;
+  top: 0%;
+  max-width: 1000px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  background: #c9b5a4;
+  color: #000000;
+  font-size: large;
+  border-radius: 10px;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  display: inline-block;
+}
+.button:hover {
+  cursor: pointer;
+  transform: translate(0, -5px);
+}
+
+.logo {
+  font-family: "Courier New", Courier, monospace;
+  line-height: 2rem;
+}
