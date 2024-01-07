@@ -1,0 +1,36 @@
+.wrapper{
+    width: 750px;
+    padding: 25px;
+    border-radius: 10px;
+    background: #dde1e7;
+    box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px #5e687949;
+}
+
+.keys{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    height: 50px;
+    width: 50px;
+    background: #dde1e7;
+    color: grey;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px #5e687949;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+input:focus{
+    color: #3498db;
+    font-size: 19px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 2px 2px 5px #5e687949;
+}
+
+input[value='Space']{
+    width: 60%;
+}
